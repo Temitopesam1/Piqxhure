@@ -12,7 +12,7 @@ import { config } from '../../../../config/config';
 const router: Router = Router();
 
 async function generatePassword(plainTextPassword: string): Promise<string> {
-    //@TODO Use Bcrypt to Generated Salted Hashed Passwords
+    // Use Bcrypt to Generated Salted Hashed Passwords
     const saltRound = 10;
     let salt = await bcrypt.genSalt(saltRound);
     let hash = await bcrypt.hash(plainTextPassword, salt)
@@ -20,18 +20,16 @@ async function generatePassword(plainTextPassword: string): Promise<string> {
 }
 
 async function comparePasswords(plainTextPassword: string, hash: string): Promise<boolean> {
-    //@TODO Use Bcrypt to Compare your password to your Salted Hashed Password
+    // Use Bcrypt to Compare your password to your Salted Hashed Password
     return bcrypt.compare(plainTextPassword, hash)
 }
 
 function generateJWT(user: User): string {
-    //@TODO Use jwt to create a new JWT Payload containing
+    // Use jwt to create a new JWT Payload containing
     return jwt.sign(user.toJSON(), config.jwt.secret);
 }
 
 export function requireAuth(req: Request, res: Response, next: NextFunction) {
-    // console.warn("auth.router not yet implemented, you'll cover this in lesson 5")
-    // return next();
     if (!req.headers || !req.headers.authorization){
         return res.status(401).send({ message: 'No authorization headers.' });
     }
