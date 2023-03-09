@@ -5,4 +5,10 @@ The main aim of this project is to implement a web application that enables it's
 
 At a larger scale, this application is meant to be a form of social media application. The mvp implemented now will allow the users to only share their pictures and also view other users posts.
 
-The backend technology is nodejs...
+## LIBRARIES, FRAMEWORKS AND TECHNOLOGY
+
+Nodejs (express framework)
+Ionic framework
+AWS RDS
+AWS s3
+Elastic Beanstalk
